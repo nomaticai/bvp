@@ -1,0 +1,470 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#9cc3fe",
+                        "on-background": "#031d31",
+                        "surface-container-highest": "#cee5ff",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c3c6cf",
+                        "on-tertiary-fixed-variant": "#25486f",
+                        "on-tertiary-fixed": "#001c37",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#436084",
+                        "tertiary-container": "#274a71",
+                        "on-primary-fixed": "#001c37",
+                        "primary-container": "#2c4a6d",
+                        "tertiary-fixed-dim": "#a7c9f7",
+                        "tertiary": "#0a3359",
+                        "outline": "#73777f",
+                        "inverse-primary": "#abc9f2",
+                        "inverse-surface": "#1b3247",
+                        "on-primary-container": "#9cbae2",
+                        "surface": "#f7f9ff",
+                        "primary": "#123355",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#2a486b",
+                        "primary-fixed-dim": "#abc9f2",
+                        "surface-bright": "#f7f9ff",
+                        "on-secondary-fixed": "#001c3a",
+                        "background": "#f7f9ff",
+                        "on-secondary-fixed-variant": "#1a487b",
+                        "on-tertiary-container": "#98bae7",
+                        "surface-container": "#e3efff",
+                        "secondary": "#366094",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#e8f2ff",
+                        "on-surface": "#031d31",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#d4e3ff",
+                        "on-surface-variant": "#43474e",
+                        "tertiary-fixed": "#d2e4ff",
+                        "surface-variant": "#cee5ff",
+                        "surface-dim": "#c5dcf8",
+                        "primary-fixed": "#d2e4ff",
+                        "surface-container-low": "#edf4ff",
+                        "on-secondary-container": "#245084",
+                        "surface-container-high": "#d9eaff",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#a5c8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "12px",
+                        "2xl": "16px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    }catch(_e){}</script><meta charset="utf-8"></head><body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary/90 backdrop-blur-md shadow-[0_4px_20px_rgba(44,74,109,0.05)]">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed">Beach View Properties</span>
+</div>
+<div class="hidden md:flex gap-8">
+<a href="#" class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-md text-label-md">Destinations</a>
+<a href="#" class="text-on-surface-variant dark:text-on-primary-container hover:text-secondary transition-colors duration-300 font-label-md text-label-md">Experiences</a>
+<a href="#" class="text-on-surface-variant dark:text-on-primary-container hover:text-secondary transition-colors duration-300 font-label-md text-label-md">Gallery</a>
+<a href="#" class="text-on-surface-variant dark:text-on-primary-container hover:text-secondary transition-colors duration-300 font-label-md text-label-md">About Us</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-label-md text-label-md hover:bg-secondary transition-all active:scale-95">
+                Check Availability
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMb1M-293zwlCjRg6j0djZQIHeFQTVPe-zvQvKBM5_0Md_kKG0zEGkPjf1TmzxcG7ShfPZ68T6GgEiTjiyfVMV9GzNuVFR7CV7Pl3UoZPjKcBnCLnTAlpPbYink025Mc-RXhtUplhloh_sJ-xTsqnIdbxaXuRDTysz4PD5n2YZ3UWIrIOrz74qFyuZaYHxvXS5ETNiYdPNRT3q6S4QaH-ivdDh3dhkVLOnsQnjE5YY9dOfGy1QLv7CejB433zpz4DyMrzlZdH3dE7x" class="w-full h-full object-cover" data-alt="A breathtaking sunset view from a luxury beachfront property on Hilton Head Island. The golden light reflects off a modern infinity pool that blends into the turquoise ocean, while large glass sliding doors reveal a warm, sophisticated living space with upscale nautical decor. The atmosphere is peaceful, exclusive, and radiates coastal luxury.">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/30 via-transparent to-surface"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max px-margin-desktop text-center">
+<h1 class="font-display-lg text-display-lg text-on-primary drop-shadow-lg mb-stack-md md:text-display-lg text-display-lg-mobile">
+                    Your Hilton Head Island<br>Beach Escape
+                </h1>
+<!-- Search Card -->
+<div class="max-w-4xl mx-auto glass-panel p-6 rounded-2xl shadow-xl flex flex-col md:flex-row gap-4 items-end">
+<div class="flex-1 text-left">
+<label class="block font-label-md text-label-md text-primary mb-2">Destination</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-original-icon="location_on">location_on</span>
+<input type="text" placeholder="Sea Pines, Palmetto Dunes..." class="w-full pl-10 pr-4 py-3 rounded-xl border-outline-variant focus:border-secondary focus:ring-0 text-body-md">
+</div>
+</div>
+<div class="flex-1 text-left">
+<label class="block font-label-md text-label-md text-primary mb-2">Check-in / Out</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-original-icon="calendar_today">calendar_today</span>
+<input type="text" placeholder="Select dates" class="w-full pl-10 pr-4 py-3 rounded-xl border-outline-variant focus:border-secondary focus:ring-0 text-body-md">
+</div>
+</div>
+<div class="w-full md:w-32 text-left">
+<label class="block font-label-md text-label-md text-primary mb-2">Guests</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">group</span>
+<input type="number" value="2" class="w-full pl-10 pr-4 py-3 rounded-xl border-outline-variant focus:border-secondary focus:ring-0 text-body-md">
+</div>
+</div>
+<button class="bg-primary text-on-primary w-full md:w-auto px-8 py-3.5 rounded-xl font-label-md text-label-md hover:bg-secondary transition-all flex items-center justify-center gap-2">Book Your Stay</button><button class="bg-primary text-on-primary w-full md:w-auto px-8 py-3.5 rounded-xl font-label-md text-label-md hover:bg-secondary transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">search</span>
+                        Search
+                    </button>
+</div>
+</div>
+</section>
+<!-- Trust Bar -->
+<section class="py-stack-md bg-surface-container-low border-y border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-wrap justify-center md:justify-between items-center gap-gutter">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-md text-label-md text-on-surface">Airbnb Superhost</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.9 Guest Rating</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">reviews</span>
+<span class="font-label-md text-label-md text-on-surface">100+ Verified Reviews</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-label-md text-label-md text-on-surface">Secure Direct Booking</span>
+</div>
+</div>
+</section>
+<!-- Property Grid -->
+<section class="py-stack-lg max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Curated Coastal Residences</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto">Explore our hand-picked selection of luxury villas and oceanfront bungalows designed for the perfect island getaway.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Property Card 1 -->
+<div class="group bg-surface-container-lowest rounded-2xl shadow-[0_4px_20px_rgba(44,74,109,0.05)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(44,74,109,0.08)]">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="An expansive white-sand beach under a clear blue sky, featuring a modern luxury beach house with large cedar-paneled decks and floor-to-ceiling windows. The landscape is dotted with graceful sea oats and palm trees, with the deep blue Atlantic ocean visible in the background, embodying a high-end coastal lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDueDCY-Q2At3DpgVl545AFKo-Z9G7flOJ79uFtMFZiRJqrBdsEwHrH8VqZVSdR3DASkgIvZwErhYWyxY2HJk29ZIwt_GGGuPT4sYE4oSr6f3oqMsHWVheaF5hO9B5eAxR_UVtykSiXdZ_EsCEHmkvcK7d_JRJ2hNWQiq0XG172OHNo5WgLvCtskWsIrm7AFohRSWwRYYCMRSRmfOX18FvxOwnIJv2oK-7sWNxsuFPrgnH2qnXWDvhQBIhTNd4w2xt5m5QV28XLyWa_">
+<div class="absolute top-4 right-4 bg-primary/90 text-on-primary px-3 py-1 rounded-full text-label-md font-label-md">
+                            From $450/nt
+                        </div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Indigo Beach Villa</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Sea Pines, HHI
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/30">
+<div class="flex gap-4 text-outline text-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bed</span> 4</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bathtub</span> 3.5</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-secondary transition-all">Book Now</button>
+</div>
+</div>
+</div>
+<!-- Repeat Property Cards -->
+<div class="group bg-surface-container-lowest rounded-2xl shadow-[0_4px_20px_rgba(44,74,109,0.05)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(44,74,109,0.08)]">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A modern luxury kitchen in a coastal villa with marble countertops and light oak cabinetry. Large windows look out over a private pool and the beach. The space is filled with soft, warm morning light, highlighting a minimalist and elegant design with stainless steel appliances and blue glass accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0IF6H205TVbYunTHmrq8s4clswUIxLoTxnhBZyKt_lzDJVrpP5htpJglqYqcs4urLAdbb3iVRX5TyNl3fTP8w1nEixLSn5cXmQI8e2EUT76zCuZXaizJJsarMHja-O8kkTyQuoOp5gQ1NvY-7XaXfSPn488bCLSXX1potoVd5yntDSBnk7l5_y98QUpLLQYKvlpYiQqhJTT2KZr9zXzAzv-6wkz40TWdhCiw0NI4REi7pVsT0hZVaTl8nGUTAcp08IJBq4t1j1CAw">
+<div class="absolute top-4 right-4 bg-primary/90 text-on-primary px-3 py-1 rounded-full text-label-md font-label-md">
+                            From $380/nt
+                        </div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Azure Sands Retreat</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Palmetto Dunes, HHI
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/30">
+<div class="flex gap-4 text-outline text-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bed</span> 3</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bathtub</span> 2</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-secondary transition-all">Book Now</button>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl shadow-[0_4px_20px_rgba(44,74,109,0.05)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(44,74,109,0.08)]">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A serene master bedroom in a beachside home featuring white linens, a drift-wood bed frame, and soft blue textiles. Expansive sliding glass doors open to a balcony overlooking the dunes and ocean at dawn. The room has a bright, airy feeling with natural textures and high-end coastal minimalist styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvW5dmNpM12oIuY6fgUm1kI4wYa6Ab549oNu2B3cZLoZaLw6hjjaKUw80CR0zLqLfyvGyrfGEk4--s2jjW-tRyNdKEAiV_ekoMda-FgMIec4pcieTSEu72sT24kBN742kPC910QX_uSglNJS1VcfWXvWsht7x2bptZJFq2F3WhCe4bngik7RkusEWk4zrVQGFwouOCRU6oDBNvSGwX4zHETU_4uYLrnbrhZUZG-Gobg9tMjwOHoHudfBY6fwzoxL_jw5xUrTIKcj1H">
+<div class="absolute top-4 right-4 bg-primary/90 text-on-primary px-3 py-1 rounded-full text-label-md font-label-md">
+                            From $620/nt
+                        </div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">The Lookout Penthouse</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Forest Beach, HHI
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/30">
+<div class="flex gap-4 text-outline text-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bed</span> 5</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bathtub</span> 4</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-secondary transition-all">Book Now</button>
+</div>
+</div>
+</div>
+<!-- More cards... -->
+<div class="group bg-surface-container-lowest rounded-2xl shadow-[0_4px_20px_rgba(44,74,109,0.05)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(44,74,109,0.08)]">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A modern outdoor lounge area of a luxury property with an infinity edge pool. High-end outdoor sofas sit around a sleek gas fire pit, looking out towards the coastline. The scene is illuminated by warm ambient lighting under a starry night sky, conveying a sense of exclusive nighttime leisure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvMm7IB6GOljgLsf3RlJRWMi2Vv86jAZ81SO7Mg53kHkvx11CwpK9tjTn45KKjtRhH29fAc_Lr3nv-q1n5cjqUmCJU4Gh5ixRR1JDInyG-wK7l-_nJ1eebs0jTidx4D6IWVLq6hlx_OH_xOQnEg9UGusnxn5ciUgoTha-HOnkYEpttcLB-NbhXCeGdcvTtmwrEconR_uuJksZYFwcj8O6feg-vbcDTfS02AFjgN6MHW5iytULJJQcqcqKU4tMGaadTwddrYKirZ379">
+<div class="absolute top-4 right-4 bg-primary/90 text-on-primary px-3 py-1 rounded-full text-label-md font-label-md">
+                            From $510/nt
+                        </div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Sea Pines Sanctuary</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Sea Pines, HHI
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/30">
+<div class="flex gap-4 text-outline text-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bed</span> 4</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bathtub</span> 3.5</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-secondary transition-all">Book Now</button>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl shadow-[0_4px_20px_rgba(44,74,109,0.05)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(44,74,109,0.08)]">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A beautiful modern bathroom in a coastal vacation rental with a large soaking tub positioned in front of a window overlooking the dunes. The walls are finished in a soft sand-colored plaster, and the floors are large format light grey stone. The aesthetic is clean, spa-like, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4GeiZ74BNpxnoiIn8rSiXs3jthdhdP3wq36aWHc7z1JEsJArO8NkxhKCSXvTtX-8pleezb_AuJ_XQxgiWTCLdZQzpFxnJARCK6n4e8BTmptvnjI819wcXUEqnZ1FYcrdTitAlsyjWg_mO_eopVYfk3lJ6ZfqVLYlhbJPrjj5el_N9qYPEkc6t6hP4xZdMBLwS9HlBa0d30SWj7-aX7_X6zz4Q9kdgyvNJF0f1aewYczLKB2rJV6YWL6iMP2wS3Cbf1A9reRzWGKf2">
+<div class="absolute top-4 right-4 bg-primary/90 text-on-primary px-3 py-1 rounded-full text-label-md font-label-md">
+                            From $295/nt
+                        </div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Coastal Cove Flat</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Shipyard, HHI
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/30">
+<div class="flex gap-4 text-outline text-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bed</span> 2</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bathtub</span> 2</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-secondary transition-all">Book Now</button>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl shadow-[0_4px_20px_rgba(44,74,109,0.05)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(44,74,109,0.08)]">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A professional quality image of a large open-plan living room with high vaulted ceilings and exposed white beams. Neutral-colored sofas are arranged around a large stone fireplace, with glass doors opening to a lush garden patio. The decor is a mix of high-end traditional and beach-modern, emphasizing comfort and luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAinFbG_Rxees1xxlZytweEl1dlIgOT3yCFChdsR6fMkIW9Vza1UnFXO_paTEn2Ha-V36MEOi6Us0bJ1gJPCGN9Jh4c-iE87Kx3PTi3DRjVp8igNNSWMiLAtxtwzO6ByuTlsnbC1_DSBH6o9PMRhvMv0NvzYJqq2bhPelOe1jvs6d9c0xlOxQknFUWR-y_kfsn-4qtqTjiRSYGseJgXPTqFKUKeY55bPq9YJudjEtWEzBbpc9pufyDb1hn-RpZRTCo-MSplKYUD6lrY">
+<div class="absolute top-4 right-4 bg-primary/90 text-on-primary px-3 py-1 rounded-full text-label-md font-label-md">
+                            From $750/nt
+                        </div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Oasis at Harbour Town</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Sea Pines, HHI
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/30">
+<div class="flex gap-4 text-outline text-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bed</span> 6</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">bathtub</span> 5.5</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-secondary transition-all">Book Now</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Comparison -->
+<section class="py-stack-lg bg-surface-container">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="relative h-[500px] rounded-2xl overflow-hidden group shadow-lg">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A stunning aerial view of a cluster of luxury beachfront condominiums with white facades and turquoise balconies. The architecture is modern and Mediterranean-inspired, surrounded by lush manicured tropical gardens and multiple swimming pools that overlook a pristine white-sand beach. The lighting is bright and summery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAndIsvkvGPMl1eSCiDudk5rkn70kTDMyca8UKzIO_Ie71D1IAjjivh6dxAwwpNj6fGY66jjeW5-BXWVZdIONxHu1cYaPiR213kzP1qkTpgaayT0EiRs6Vft9MMAVe-XX0EXWce9wXEZEm35thPyak8YTbNTA91t0LOrM9ss_IOKMTj3F1TnZGn5SX5TXB_jZXZvuo0MZtsrCUhip4TQVTsG9y9npsjoL18LjPbbcKkrFxnckwmLZ7mdbkeEz1Bam9X5Ie4S_Ddmz5d">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-10">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2">Seaside Villas Collection</h3>
+<p class="text-on-primary-container mb-6 text-body-md">Luxury resort-style living with pool access, fitness centers, and prime walkability to shops and dining.</p>
+<button class="bg-on-primary text-primary px-8 py-3 rounded-xl font-label-md text-label-md self-start hover:bg-secondary-container transition-all">Explore Villas</button><button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-label-md text-label-md self-start hover:bg-secondary transition-all ml-4">View &amp; Book</button>
+</div>
+</div>
+<div class="relative h-[500px] rounded-2xl overflow-hidden group shadow-lg">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A beautiful private island estate nestled among ancient oak trees draped with Spanish moss. The house features a wrap-around porch with rocking chairs and high-end outdoor lanterns. The setting is secluded and private, offering a glimpse into a tranquil, upscale southern coastal lifestyle with traditional architecture and modern luxury finishes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjNbCQUz4i092JEj8IHtG5nsf9hIvXvuevS2bqhqHt9ZmMu17dKIb2efM_q6q55bl_GOrgaa-g3VOcaMsv_kp0QUVS_cynbeXe1c07uvsjpNYQQ4aV5bPSwv1pCDv4a8n9P6PlW-Psi38B33R2r0xmjjpvU5E84VRhnr_MPJvjbdZkq-Ox5DAlRfu0jGgmPM6Ri40tOvZN9w39CHWrjPAIh3nP800RmPAVJOkuJGL9wzJf2XT8c_BxwJKfNVmD3F83-7Y08xfWjcwW">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-10">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2">Sea Pines Bungalow</h3>
+<p class="text-on-primary-container mb-6 text-body-md">Private estates tucked away in maritime forests, offering total seclusion, private pools, and direct beach access.</p>
+<button class="bg-on-primary text-primary px-8 py-3 rounded-xl font-label-md text-label-md self-start hover:bg-secondary-container transition-all">Explore Bungalows</button><button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-label-md text-label-md self-start hover:bg-secondary transition-all ml-4">View &amp; Book</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Book Direct -->
+<section class="py-stack-lg max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Why Book Direct with Us?</h2>
+<div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="text-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">no_accounts</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-3">No Service Fees</h4>
+<p class="text-body-md text-on-surface-variant px-4">Avoid the 15-20% service fees charged by major platforms. Book direct and save significantly on your stay.</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">chat</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-3">Direct Communication</h4>
+<p class="text-body-md text-on-surface-variant px-4">Speak directly with our local team. We know our properties inside-out and can answer every specific detail.</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">local_activity</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-3">Local Recommendations</h4>
+<p class="text-body-md text-on-surface-variant px-4">Receive a curated island guide with our favorite hidden gems, from beach spots to local seafood favorites.</p>
+</div>
+</div>
+</section>
+<!-- Reviews Carousel (Simplified for Static View) -->
+<section class="py-stack-lg bg-primary">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="md:w-1/3">
+<h2 class="font-headline-md text-headline-md text-on-primary mb-4">What Our Guests Say</h2>
+<p class="text-on-primary-container text-body-lg">Real stories from travelers who experienced the perfect beach escape with us.</p>
+<div class="flex gap-4 mt-8">
+<button class="w-12 h-12 rounded-full border border-on-primary-container flex items-center justify-center text-on-primary hover:bg-on-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-on-primary-container flex items-center justify-center text-on-primary hover:bg-on-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="md:w-2/3 flex gap-gutter overflow-hidden">
+<div class="min-w-[400px] glass-panel p-10 rounded-2xl">
+<div class="flex text-secondary-container mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface italic text-body-lg mb-8 leading-relaxed">"The Indigo Villa exceeded all our expectations. The direct beach access and infinity pool made it the most relaxing family vacation we've ever had. Beach View Properties' local recommendations were spot on!"</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container"></div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Sarah &amp; Michael J.</p>
+<p class="text-caption text-on-surface-variant">Stayed June 2024</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center"><button class="bg-on-primary text-primary px-10 py-4 rounded-xl font-headline-sm text-headline-sm hover:bg-secondary-container transition-all shadow-lg">Ready to Escape? Book Now</button></div></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-on-background w-full">
+<div class="flex flex-col md:flex-row justify-between items-start px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<div class="md:w-1/3 mb-12 md:mb-0">
+<img alt="Beach View Properties Logo" class="h-16 mb-6 brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx2JkLWUassfAR7rFEj5BA_GSnwEwUAelN3V2nTPYcLgpo7GV5IC1bMYE2l1qciG1wKZLRjo_4c_K3NnZnf4ZV6_R1f8OyXPf2LiWXNUI4PfHUNuZfLLpTHWC1cc0VJMdwPy-zH2M1DWqxypuiXKgNX6S825fb3hp6Yq1J9HvnIe2_DUpOIVQnDfuB4C4O-_-y17HQFdcXaUDVRN5jEbbl37l7RM2RUXH828cL6VvGDkBGH6JtxjkUQf3RaEtN-iTzj2SSiMG44O6q">
+<p class="text-on-primary/70 text-body-md max-w-xs mb-8">Providing elite vacation experiences on Hilton Head Island since 2012. Your comfort is our priority.</p>
+<div class="flex gap-4">
+<a class="text-on-primary/70 hover:text-secondary-container transition-all" href="#"><span class="material-symbols-outlined">facebook</span></a>
+<a class="text-on-primary/70 hover:text-secondary-container transition-all" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-2 gap-12 md:w-1/2">
+<div>
+<h5 class="text-on-primary font-bold mb-6 font-label-md text-label-md">Company</h5>
+<ul class="space-y-4">
+<li class=""><a class="text-on-primary/70 hover:text-secondary-container transition-all font-body-md" href="#">About Us</a></li>
+<li class=""><a class="text-on-primary/70 hover:text-secondary-container transition-all font-body-md" href="#">Destinations</a></li>
+<li class=""><a class="text-on-primary/70 hover:text-secondary-container transition-all font-body-md" href="#">Experiences</a></li>
+<li class=""><a class="text-on-primary/70 hover:text-secondary-container transition-all font-body-md" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-on-primary font-bold mb-6 font-label-md text-label-md">Support</h5>
+<ul class="space-y-4">
+<li class=""><a class="text-on-primary/70 hover:text-secondary-container transition-all font-body-md" href="#">Privacy Policy</a></li>
+<li class=""><a class="text-on-primary/70 hover:text-secondary-container transition-all font-body-md" href="#">Terms of Service</a></li>
+<li class=""><a class="text-on-primary/70 hover:text-secondary-container transition-all font-body-md" href="#">Booking Policy</a></li>
+<li class=""><a class="text-on-primary/70 hover:text-secondary-container transition-all font-body-md" href="#">FAQ</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop border-t border-on-primary/10 py-8">
+<p class="text-on-primary/50 text-caption">© 2024 Beach View Properties. All rights reserved.</p>
+</div>
+</footer>
+<!-- SideNavBar (Floating Concierge) -->
+<aside class="fixed bottom-8 right-8 flex flex-col space-y-4 z-50">
+<a class="bg-secondary text-on-secondary rounded-full p-4 shadow-lg hover:scale-110 transition-transform duration-300 active:scale-95 flex items-center justify-center group relative" href="tel:+15551234567">
+<span class="material-symbols-outlined">call</span>
+<span class="absolute right-full mr-4 bg-primary text-on-primary px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Call Us</span>
+</a>
+<a class="bg-[#25D366] text-white rounded-full p-4 shadow-lg hover:scale-110 transition-transform duration-300 active:scale-95 flex items-center justify-center group relative" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="absolute right-full mr-4 bg-primary text-on-primary px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">WhatsApp</span>
+</a>
+</aside>
+<script>
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.group').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+
+</body></html>
