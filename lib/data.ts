@@ -9,10 +9,15 @@
  * Photos are Stitch placeholders (see lib/images.ts) — TODO: swap for real
  * muscache photos before launch.
  */
-import type { Property } from "./types";
+import type { Property, PropertyPhoto } from "./types";
 import { IMG } from "./images";
 
-export const properties: Property[] = [
+/** Real, locally-hosted listing photo served from public/images/<folder>/<file>. */
+function local(folder: string, file: string, altText: string): PropertyPhoto {
+  return { url: `/images/${folder}/${file}`, altText };
+}
+
+const propertiesSeed: Property[] = [
   {
     slug: "unit-248-seaside-villas",
     name: "Beach Getaway Special! Cozy 1BR steps from beach",
@@ -83,7 +88,7 @@ export const properties: Property[] = [
     locationBlurb:
       "Set inside the gated Seaside Villas community on South Forest Beach, you're steps from the sand and a short stroll from Coligny Plaza's dining and shopping.",
     placeholderNightlyRate: 285,
-    sortOrder: 1,
+    sortOrder: 3,
   },
   {
     slug: "bikes-and-chairs-seaside-villas",
@@ -105,13 +110,30 @@ export const properties: Property[] = [
     strPermit: "STR Permit #5310",
     airbnbRoomId: "1601754149851919852",
     airbnbIcalUrl: null,
-    heroImage: IMG.kitchenNavy,
+    heroImage: local(
+      "bikes-and-chairs-seaside-villas",
+      "8a348339-bd47-4a3c-a39f-4b173bfea59d.jpeg",
+      "Two complimentary tan beach-cruiser bikes parked by the lawn with the ocean beyond.",
+    ),
     gallery: [
-      IMG.kitchenNavy,
-      IMG.livingRoomOcean,
-      IMG.bedroomKing,
-      IMG.balconyDusk,
-      IMG.sunsetPoolVilla,
+      local("bikes-and-chairs-seaside-villas", "8a348339-bd47-4a3c-a39f-4b173bfea59d.jpeg", "Two complimentary tan beach-cruiser bikes parked by the lawn with the ocean beyond."),
+      local("bikes-and-chairs-seaside-villas", "6f43bd9a-8cd6-41f0-895f-85ae14955c4d.jpeg", "Living area with a navy sofa, coastal pillows, surfboard decor, and a full kitchenette."),
+      local("bikes-and-chairs-seaside-villas", "cb66a94e-026d-4880-93d8-5208bd9ef009.jpeg", "King bedroom with a coral quilt, greenery wall art, and a farmhouse clock."),
+      local("bikes-and-chairs-seaside-villas", "92d82b9f-056a-4fa9-a001-e5d61da8fb8f.jpeg", "View from the balcony over the palms and parking toward the ocean."),
+      local("bikes-and-chairs-seaside-villas", "3c42af14-a900-4f68-b1d3-93bad04b19c2.jpeg", "Living room with a navy sofa, ceiling fan, and shuttered doors to the balcony."),
+      local("bikes-and-chairs-seaside-villas", "df879980-7a37-4dc4-af9d-60aef3d4d5b9.jpeg", "Navy sofa with coastal accent pillows, a framed mirror, and surfboard decor."),
+      local("bikes-and-chairs-seaside-villas", "c40d0d4d-cce5-410a-a201-a05c5eb3fe9f.jpeg", "Kitchenette with stainless fridge, a round dining table, and a wall-mounted TV."),
+      local("bikes-and-chairs-seaside-villas", "72105d7a-c958-467a-8d22-4066b91bc8c5.jpeg", "Kitchenette with white cabinetry, tile backsplash, and a surfboard leaning by the sofa."),
+      local("bikes-and-chairs-seaside-villas", "ca3e4b01-a39f-4d97-b959-f0e1cf3c4492.jpeg", "Dining table and leather recliner beside the balcony door."),
+      local("bikes-and-chairs-seaside-villas", "a016b091-3625-4962-8e66-19b14bdb7d62.jpeg", "Cozy leather recliner with ottoman beside the dining table."),
+      local("bikes-and-chairs-seaside-villas", "0a8297e9-f5c6-4f3c-883f-306d4c092d67.jpeg", "Shuttered sliding doors opening onto the private balcony."),
+      local("bikes-and-chairs-seaside-villas", "d79546e1-9f96-4030-ad8e-c08046695c29.jpeg", "King bedroom with a coral quilt and coastal wall decor."),
+      local("bikes-and-chairs-seaside-villas", "8a82eb54-421e-4b93-8b4a-e94e008a2674.jpeg", "Bedroom with a dresser, TV, and full-length mirror near the entry door."),
+      local("bikes-and-chairs-seaside-villas", "fc06241a-f10d-419d-a8b7-1bfb0eb0421c.jpeg", "Bedroom with rustic barn-door accents and a dresser with a TV."),
+      local("bikes-and-chairs-seaside-villas", "afbe3b1e-2a08-4e77-9c89-e5ba522a5e87.jpeg", "Sliding barn doors opening from the bedroom toward the living area."),
+      local("bikes-and-chairs-seaside-villas", "e686c5e0-6ad4-41cd-89bb-9df2d6b7d579.jpeg", "Dining nook with a wall-mounted TV and a recliner."),
+      local("bikes-and-chairs-seaside-villas", "5bfef4bf-aa52-46c4-946b-f9b522f31a1d.jpeg", "Decorative framed mirror reflecting the kitchen and living space."),
+      local("bikes-and-chairs-seaside-villas", "7a4e95c6-3d53-4f0c-ae57-92776e3bcf63.jpeg", "Community picnic tables and grill area shaded by live oaks."),
     ],
     bedGroups: [
       { room: "Bedroom 1", detail: "1 Queen bed", iconKey: "king_bed" },
@@ -155,7 +177,7 @@ export const properties: Property[] = [
     locationBlurb:
       "In a beachfront Seaside Villas complex steps from the sand and public pool, close to Coligny Plaza, golf, and watersports.",
     placeholderNightlyRate: 295,
-    sortOrder: 2,
+    sortOrder: 4,
   },
   {
     slug: "seaside-villas-ii-direct-access",
@@ -178,13 +200,25 @@ export const properties: Property[] = [
     strPermit: "STR Permit #040730",
     airbnbRoomId: "1689173181958444712",
     airbnbIcalUrl: null,
-    heroImage: IMG.livingRoomOcean,
+    heroImage: local(
+      "seaside-villas-ii-direct-access",
+      "8b08d0e5-54bc-4e32-82bd-12f1777d9cc5.jpeg",
+      "Seaside Villas II building set among tall pines, with the beach boardwalk under a clear blue sky.",
+    ),
     gallery: [
-      IMG.livingRoomOcean,
-      IMG.bedroomKing,
-      IMG.kitchenNavy,
-      IMG.balconyDusk,
-      IMG.sunsetPoolVilla,
+      local("seaside-villas-ii-direct-access", "8b08d0e5-54bc-4e32-82bd-12f1777d9cc5.jpeg", "Seaside Villas II building set among tall pines, with the beach boardwalk under a clear blue sky."),
+      local("seaside-villas-ii-direct-access", "0af88002-db90-4144-a506-7dfde093dad9.jpeg", "Living room with a grey sofa, leather recliner, and shuttered doors to the private balcony."),
+      local("seaside-villas-ii-direct-access", "31d7eac6-da73-477c-8203-647b0c2993f0.jpeg", "Newly furnished kitchen with dark cabinetry, stainless appliances, and a dining bar."),
+      local("seaside-villas-ii-direct-access", "d7a52845-5ca7-4610-a25e-334fb961cc31.jpeg", "King bedroom with a black iron bed frame, palm-print art, and matching bedside lamps."),
+      local("seaside-villas-ii-direct-access", "91258b54-f0a1-4b41-a927-03c1e4a3ce64.jpeg", "Renovated bathroom with a sliding glass shower and coastal starfish decor."),
+      local("seaside-villas-ii-direct-access", "9de86b29-19d1-4922-90f9-233aff2ce3b9.jpeg", "Kitchen with dark cabinetry and stainless fridge beside the living-room sofa."),
+      local("seaside-villas-ii-direct-access", "83cc7aff-8a18-436c-9d9c-e31ea4a04380.jpeg", "King bedroom with a full-length mirror and palm-print art near the entry door."),
+      local("seaside-villas-ii-direct-access", "5c625058-c044-4678-9f48-36b9aa38f188.jpeg", "Dining bar with stools and a wall-mounted TV looking down the entry hallway."),
+      local("seaside-villas-ii-direct-access", "fe854034-ad6b-4e14-8bdf-0c59d17e6e0e.jpeg", "Leather swivel recliner beside a high-top bar table and palm-print art."),
+      local("seaside-villas-ii-direct-access", "47193a75-f18c-4cc6-9d7d-1387bc4dca44.jpeg", "Bathroom vanity with a marble top, black cabinetry, and a lighted mirror."),
+      local("seaside-villas-ii-direct-access", "ca4c5d45-2c79-4e37-8cc1-58f4fc3092b3.jpeg", "Second view of the renovated bathroom with sliding shower and black vanity."),
+      local("seaside-villas-ii-direct-access", "6f0e16ba-dc48-4c1c-9bde-e85c02c8aebb.jpeg", "Exterior staircase leading up through the villas toward the pool."),
+      local("seaside-villas-ii-direct-access", "d6568450-288c-46c9-98e8-03f20c05056b.jpeg", "Ground-floor building elevator at Seaside Villas II."),
     ],
     bedGroups: [
       { room: "Bedroom 1", detail: "1 King bed", iconKey: "king_bed" },
@@ -228,7 +262,7 @@ export const properties: Property[] = [
     locationBlurb:
       "On South Forest Beach inside the gated Seaside Villas II complex, with direct beach and pool access and a short walk to Coligny Plaza.",
     placeholderNightlyRate: 320,
-    sortOrder: 3,
+    sortOrder: 5,
   },
   {
     slug: "ocean-view-retreat-seaside-villas",
@@ -249,13 +283,28 @@ export const properties: Property[] = [
     isGuestFavorite: true,
     airbnbRoomId: "1626990849898070003",
     airbnbIcalUrl: null,
-    heroImage: IMG.bedroomDrift,
+    heroImage: local(
+      "ocean-view-retreat-seaside-villas",
+      "b3d28a2f-4f61-4818-94e1-bf34e322f5f4.jpeg",
+      "Ocean view from the private balcony, framed by palms over the dunes and the Atlantic.",
+    ),
     gallery: [
-      IMG.bedroomDrift,
-      IMG.livingRoomOcean,
-      IMG.kitchenLight,
-      IMG.loungeNight,
-      IMG.balconyDusk,
+      local("ocean-view-retreat-seaside-villas", "b3d28a2f-4f61-4818-94e1-bf34e322f5f4.jpeg", "Ocean view from the private balcony, framed by palms over the dunes and the Atlantic."),
+      local("ocean-view-retreat-seaside-villas", "991ed3ee-ca26-4dbf-b1d8-b6664d698f19.jpeg", "Bright open-plan living room and kitchen with a coastal patterned area rug."),
+      local("ocean-view-retreat-seaside-villas", "2a29ae74-bf7f-4a71-92ef-bbb27fa48aec.jpeg", "Queen bedroom with a soft blue duvet, ceiling fan, and a crab accent pillow."),
+      local("ocean-view-retreat-seaside-villas", "0feb7b38-94e1-4033-9d21-ad2d82e202d9.jpeg", "Two complimentary blue beach-cruiser bikes ready by the palms."),
+      local("ocean-view-retreat-seaside-villas", "94e149d5-ab47-46c4-839b-41f2bbee6732.jpeg", "Aerial view of the beachfront complex, dunes, and the beach lined with umbrellas."),
+      local("ocean-view-retreat-seaside-villas", "0e2ed310-65c2-42e6-bb11-754019b20cd6.jpeg", "Living room with a grey sofa, navy storage ottoman, and adjoining kitchenette."),
+      local("ocean-view-retreat-seaside-villas", "6a8fcbb2-8f0c-4507-ba0d-d761cbc2ae83.jpeg", "Sitting area with two accent armchairs, a bookshelf, and a high-top dining table."),
+      local("ocean-view-retreat-seaside-villas", "37701b7d-c3bb-4c62-8b72-6e30a2f601f8.jpeg", "Balcony with black rocking chairs overlooking the palms and grounds."),
+      local("ocean-view-retreat-seaside-villas", "58cdfe70-845b-4002-98b4-960479743282.jpeg", "Resort-style community pool beside the villas."),
+      local("ocean-view-retreat-seaside-villas", "791e0400-c991-469f-a86b-0f32285f30c7.jpeg", "Built-in bunk beds, ideal for children."),
+      local("ocean-view-retreat-seaside-villas", "2fbb6719-e248-40db-bfd3-000f4e677e62.jpeg", "Bedroom view with a closet-nook TV and dresser."),
+      local("ocean-view-retreat-seaside-villas", "d371e4f4-4741-4510-96f2-9400ded03577.jpeg", "Full bathroom with a coastal fish-print shower curtain and round mirror."),
+      local("ocean-view-retreat-seaside-villas", "8208d930-3b78-47b0-af99-3eefc74bd145.jpeg", "Grassy lawn and boardwalk leading toward the beach."),
+      local("ocean-view-retreat-seaside-villas", "2450f516-7f52-47ca-be2c-da91c5445c65.jpeg", "Interior corridor leading to the units."),
+      local("ocean-view-retreat-seaside-villas", "f65b7384-58ae-4e50-88c5-ac0206155d61.jpeg", "Hallway leading past the bunk nook to the bedrooms."),
+      local("ocean-view-retreat-seaside-villas", "db16244c-aea1-4ab2-847c-177c10cd47fe.jpeg", "Interior hallway with coastal decor."),
     ],
     bedGroups: [
       { room: "Bedroom 1", detail: "1 Queen bed · 1 Bunk bed", iconKey: "king_bed" },
@@ -299,7 +348,7 @@ export const properties: Property[] = [
     locationBlurb:
       "In a beachfront Seaside Villas complex with ocean views, a 5–10 minute walk from Coligny Plaza's shops and restaurants.",
     placeholderNightlyRate: 275,
-    sortOrder: 4,
+    sortOrder: 2,
   },
   {
     slug: "sea-pines-bungalow",
@@ -373,7 +422,7 @@ export const properties: Property[] = [
     locationBlurb:
       "Tucked inside Sea Pines with a short private walk to the beach and pool, near Harbour Town, South Beach Marina, and Lawton Stables.",
     placeholderNightlyRate: 450,
-    sortOrder: 5,
+    sortOrder: 6,
   },
   {
     slug: "unit-292-seaside-villas",
@@ -396,13 +445,31 @@ export const properties: Property[] = [
     strPermit: "Unit 292",
     airbnbRoomId: "1609796746527794552",
     airbnbIcalUrl: null,
-    heroImage: IMG.balconyDusk,
+    heroImage: local(
+      "unit-292-seaside-villas",
+      "fb29d70c-4727-4c49-ba0a-de170308282e.jpeg",
+      "Seaside Villas building exterior framed by palms, with the beach boardwalk under a clear blue sky.",
+    ),
     gallery: [
-      IMG.balconyDusk,
-      IMG.bedroomKing,
-      IMG.kitchenNavy,
-      IMG.bathroomSpa,
-      IMG.sunsetPoolVilla,
+      local("unit-292-seaside-villas", "fb29d70c-4727-4c49-ba0a-de170308282e.jpeg", "Seaside Villas building exterior framed by palms, with the beach boardwalk under a clear blue sky."),
+      local("unit-292-seaside-villas", "f9f975bc-56bf-4206-83e1-b732a72572df.jpeg", "Open living area with a sofa, coffee table, and full kitchenette with black appliances."),
+      local("unit-292-seaside-villas", "db0fe985-d675-4bce-b85e-401eb3bcbccc.jpeg", "Kitchen with a stainless range, microwave, and a coastal blue-tile 'Seaside' backsplash."),
+      local("unit-292-seaside-villas", "c2e63dec-10fc-4766-9eee-e175593134ef.jpeg", "King bedroom with a coral shell-print quilt and coastal accent pillows."),
+      local("unit-292-seaside-villas", "a7d6f879-0677-401a-800d-2485eddfbf0f.jpeg", "Boardwalk over the dunes and sea oats leading to the beach and ocean."),
+      local("unit-292-seaside-villas", "0bc4bcc1-c39f-4224-961c-dc38b3b453eb.jpeg", "Community swimming pool in the sunny central courtyard."),
+      local("unit-292-seaside-villas", "f09d4528-198c-42a2-8d27-047672b837c0.jpeg", "Private balcony with cushioned wicker chairs overlooking the grounds."),
+      local("unit-292-seaside-villas", "222d968c-e088-4259-8a65-4335b926f3bf.jpeg", "Living room sofa with a blue crab accent pillow beneath a framed mirror."),
+      local("unit-292-seaside-villas", "4c0113c9-67c3-4172-a32e-610008d9a829.jpeg", "Kitchen and dining nook with a wall-mounted TV and a rustic round table."),
+      local("unit-292-seaside-villas", "c450c1e2-320e-4952-a120-6befa296eaf7.jpeg", "King bedroom with blackout curtains and coastal decor near the entry door."),
+      local("unit-292-seaside-villas", "b5ebc101-50a6-4c59-b6f5-2d5524061f0e.jpeg", "Walk-in glass shower with a wood-look tile surround."),
+      local("unit-292-seaside-villas", "7c618749-515a-4746-9a0f-e65e7c214135.jpeg", "Sandy path and boardwalk through the sea oats to the beach."),
+      local("unit-292-seaside-villas", "4c6dd886-084c-40f0-b962-243d6bb1ce64.jpeg", "Galley kitchen looking toward the entry hallway."),
+      local("unit-292-seaside-villas", "c7c78fe2-0e39-4fd1-ba35-774b04b3a35c.jpeg", "Dining table for two beside the kitchen and wall-mounted TV."),
+      local("unit-292-seaside-villas", "9d0631bd-c206-486e-bc7d-d6b6a356c18f.jpeg", "Shaded picnic tables beneath live oaks in the community grounds."),
+      local("unit-292-seaside-villas", "341ae9f0-d690-46b5-84b4-70e04724eda4.jpeg", "Community picnic and grill area among the trees."),
+      local("unit-292-seaside-villas", "9b321777-9e0b-4b6b-ad75-9037f4b46e1d.jpeg", "Exterior staircase leading up through the villas."),
+      local("unit-292-seaside-villas", "86c39696-5889-42fa-a6ce-8a9e884c1e18.jpeg", "Ground-floor building elevator."),
+      local("unit-292-seaside-villas", "78520bf3-a461-40bf-b374-e404639074ff.jpeg", "Kitchen refrigerator and pantry area."),
     ],
     bedGroups: [
       { room: "Bedroom 1", detail: "1 King bed", iconKey: "king_bed" },
@@ -446,9 +513,14 @@ export const properties: Property[] = [
     locationBlurb:
       "In the Seaside Villas complex with a balcony steps from the beach, close to restaurants and shops, with bikes available on request.",
     placeholderNightlyRate: 310,
-    sortOrder: 6,
+    sortOrder: 1,
   },
 ];
+
+/** Public listing order follows `sortOrder` (1 = first). */
+export const properties: Property[] = [...propertiesSeed].sort(
+  (a, b) => a.sortOrder - b.sortOrder,
+);
 
 export function getProperty(slug: string): Property | undefined {
   return properties.find((p) => p.slug === slug);
