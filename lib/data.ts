@@ -21,7 +21,9 @@ const propertiesSeed: Property[] = [
   {
     slug: "unit-248-seaside-villas",
     name: "Beach Getaway Special! Cozy 1BR steps from beach",
-    subtitle: "Unit 248 — your beachside haven, bikes included",
+    displayTitle: "Unit 248 in Hilton Head",
+    subtitle:
+      "Cozy one-bedroom retreat with bikes, steps from the sand in Seaside Villas.",
     community: "Seaside Villas",
     location: "Seaside Villas, Hilton Head Island, SC",
     description: [
@@ -38,13 +40,27 @@ const propertiesSeed: Property[] = [
     strPermit: "STR #040674",
     airbnbRoomId: "1500898289351367407",
     airbnbIcalUrl: null,
-    heroImage: IMG.sunsetPoolVilla,
+    heroImage: local(
+      "unit-248-seaside-villas",
+      "a04084f8-118a-4d72-b791-7798d07baf4c.jpeg",
+      "Bright living room with a beige sofa, ceiling fan, and doors to the balcony.",
+    ),
     gallery: [
-      IMG.sunsetPoolVilla,
-      IMG.livingRoomOcean,
-      IMG.kitchenLight,
-      IMG.bedroomDrift,
-      IMG.balconyDusk,
+      local("unit-248-seaside-villas", "a04084f8-118a-4d72-b791-7798d07baf4c.jpeg", "Bright living room with a beige sofa, ceiling fan, and doors to the balcony."),
+      local("unit-248-seaside-villas", "09d6c4c6-9112-4de1-be0d-55f06f0ec7b3.jpeg", "Kitchen with a breakfast bar, high-top dining table, and a wall-mounted TV."),
+      local("unit-248-seaside-villas", "4701b1de-883d-4352-bf45-34d6b4f9013d.jpeg", "Bedroom with a queen bed, palm-print art, and soft blue accent pillows."),
+      local("unit-248-seaside-villas", "81f9a3b4-5b70-4b4c-b30a-15f6bb2af06f.jpeg", "Built-in bunk beds with coastal teal-striped bedding, great for kids."),
+      local("unit-248-seaside-villas", "24b526ed-cef5-4df0-ba6b-e26373cf0e0d.jpeg", "Balcony with folding beach chairs ready to go, framed by palms."),
+      local("unit-248-seaside-villas", "23bc0a2c-c41c-4b5e-bb71-1e3bc414567a.jpeg", "Private balcony with chairs, a bistro table, and surfboards stored overhead."),
+      local("unit-248-seaside-villas", "49794119-daa5-4c35-9ac8-bd679629511e.jpeg", "Resort-style community pool in the Seaside Villas courtyard."),
+      local("unit-248-seaside-villas", "84739d91-c4ee-4f1d-90be-e830e6e4b22d.jpeg", "Breakfast bar and dining seating beside the balcony doors."),
+      local("unit-248-seaside-villas", "c1d23822-968e-4382-bcf7-356ec2d3e29f.jpeg", "Living room with a neutral sofa, coastal art, and a full-size refrigerator."),
+      local("unit-248-seaside-villas", "f3a55534-8621-45f5-99dc-11ca46de2f35.jpeg", "Bedroom nook with a dresser, TV, and shelving."),
+      local("unit-248-seaside-villas", "f8c4aca3-6db8-4402-aede-dd4538bb65a3.jpeg", "Compact kitchen with a range, microwave, dishwasher, and coffee maker."),
+      local("unit-248-seaside-villas", "c7b29dfc-237e-420c-9de8-d0e779be4c46.jpeg", "Close-up of the coastal-striped bunk beds."),
+      local("unit-248-seaside-villas", "982c5386-6cbc-4dbd-aa89-f4a89711500c.jpeg", "Bathroom vanity with a large mirror."),
+      local("unit-248-seaside-villas", "ec9c92be-f8cd-48e4-ad9a-5668ead7a5db.jpeg", "Bathroom with a tub-shower combination."),
+      local("unit-248-seaside-villas", "36b10a8a-07ef-4aff-a361-ca1a1483b18f.jpeg", "Shaded community picnic and grill area beside the villas."),
     ],
     bedGroups: [
       { room: "Bedroom 1", detail: "1 Queen bed · 1 Bunk bed", iconKey: "king_bed" },
@@ -69,7 +85,7 @@ const propertiesSeed: Property[] = [
       {
         reviewerName: "David",
         rating: 5,
-        body: "\"Clean, cozy, and exactly as pictured. Kacey was quick to answer every question. We'd book Unit 248 again in a heartbeat.\"",
+        body: "\"Clean, cozy, and exactly as pictured. The Beach View team was quick to answer every question. We'd book Unit 248 again in a heartbeat.\"",
         dateLabel: "July 2024",
       },
       {
@@ -93,7 +109,8 @@ const propertiesSeed: Property[] = [
   {
     slug: "bikes-and-chairs-seaside-villas",
     name: "Beach Getaway Special! With Bikes & Chairs",
-    subtitle: "Ocean-view condo with bikes and beach chairs included",
+    displayTitle: "Seaside Escape in Hilton Head",
+    subtitle: "Ocean-view condo with bikes and beach chairs included.",
     community: "Seaside Villas",
     location: "Seaside Villas, Hilton Head Island, SC",
     description: [
@@ -158,7 +175,7 @@ const propertiesSeed: Property[] = [
       {
         reviewerName: "Tom",
         rating: 5,
-        body: "\"Five stars all around. Great ocean views, super close to the pool and beach, and Kacey responded within minutes.\"",
+        body: "\"Five stars all around. Great ocean views, super close to the pool and beach, and the Beach View team responded within minutes.\"",
         dateLabel: "July 2024",
       },
       {
@@ -182,7 +199,9 @@ const propertiesSeed: Property[] = [
   {
     slug: "seaside-villas-ii-direct-access",
     name: "Direct Beach & Pool Access – Seaside Villas II",
-    subtitle: "Newly furnished ocean-view condo with a private balcony",
+    displayTitle: "Seaside Villas II in Hilton Head",
+    subtitle:
+      "Newly furnished ocean-view condo with direct beach and pool access.",
     community: "Seaside Villas",
     location: "Seaside Villas, Hilton Head Island, SC",
     description: [
@@ -267,7 +286,9 @@ const propertiesSeed: Property[] = [
   {
     slug: "ocean-view-retreat-seaside-villas",
     name: "Ocean View Retreat! With Chairs & Bikes",
-    subtitle: "Ocean-view condo with central air, bikes, and chairs",
+    displayTitle: "Ocean View Retreat in Hilton Head",
+    subtitle:
+      "Breezy ocean-view condo with central air, bikes, and beach chairs.",
     community: "Seaside Villas",
     location: "Seaside Villas, Hilton Head Island, SC",
     description: [
@@ -353,7 +374,9 @@ const propertiesSeed: Property[] = [
   {
     slug: "sea-pines-bungalow",
     name: "Sea Pines Escape 2BR Bungalow Walk to Beach & Pool",
-    subtitle: "Charming 2-bedroom bungalow with lagoon-view porches",
+    displayTitle: "Sea Pines Bungalow in Hilton Head",
+    subtitle:
+      "Charming 2-bedroom bungalow with lagoon-view screened porches.",
     community: "Sea Pines",
     location: "Sea Pines, Hilton Head Island, SC",
     description: [
@@ -369,13 +392,36 @@ const propertiesSeed: Property[] = [
     isGuestFavorite: false,
     airbnbRoomId: "1627016694947617075",
     airbnbIcalUrl: null,
-    heroImage: IMG.seaPinesEstate,
+    heroImage: local(
+      "sea-pines-bungalow",
+      "7126c9e5-c1ab-4280-8dbf-9fac4a94beef.jpeg",
+      "Bright open living and dining room with vaulted ceilings and doors to the screened porch.",
+    ),
     gallery: [
-      IMG.seaPinesEstate,
-      IMG.livingRoomVaulted,
-      IMG.kitchenLight,
-      IMG.bedroomDrift,
-      IMG.bathroomSpa,
+      local("sea-pines-bungalow", "7126c9e5-c1ab-4280-8dbf-9fac4a94beef.jpeg", "Bright open living and dining room with vaulted ceilings and doors to the screened porch."),
+      local("sea-pines-bungalow", "fa07dc08-3596-4353-81bf-ad5222d8419a.jpeg", "Exterior of the octagonal Sea Pines bungalow with its wrap-around screened porch, set among the pines."),
+      local("sea-pines-bungalow", "033aea7a-6c20-4455-b3af-9dc7d6b0725c.jpeg", "Screened-in porch with a glass table overlooking the wooded lagoon."),
+      local("sea-pines-bungalow", "23e83397-5ed3-4f4a-ac36-21519d271f5a.jpeg", "Primary bedroom with a king bed, coastal quilt, and vaulted ceiling."),
+      local("sea-pines-bungalow", "0d3c5b52-1a2b-403f-8bab-a883a1c6f641.jpeg", "Kitchen with oak cabinetry, white appliances, and a window over the sink."),
+      local("sea-pines-bungalow", "90be4956-a6d8-482d-8c28-612234e4f6de.jpeg", "Tranquil lagoon bordered by live oaks draped in Spanish moss."),
+      local("sea-pines-bungalow", "701082f1-42f2-4ad2-892b-d7a98b670874.jpeg", "Cozy living room with a blue sofa, sailboat art, and vaulted ceilings."),
+      local("sea-pines-bungalow", "a71878eb-f4c3-42cf-9484-22595657279e.jpeg", "Living room with a sofa and striped accent chairs under a vaulted ceiling."),
+      local("sea-pines-bungalow", "3d23e9c3-02f3-4211-a000-dc54c54761c6.jpeg", "Second bedroom with a queen bed and a colorful paisley quilt."),
+      local("sea-pines-bungalow", "5bc3216e-27ca-4d74-97c3-15fe56e894c6.jpeg", "Open sun deck with green Adirondack chairs tucked among the trees."),
+      local("sea-pines-bungalow", "620f9de3-41af-4939-a11d-0a5795078ff2.jpeg", "Second screened porch with wicker seating framed by palms."),
+      local("sea-pines-bungalow", "972b6262-6eca-4b06-b2dc-c5e012f86fe0.jpeg", "Community swimming pool surrounded by pines and palms."),
+      local("sea-pines-bungalow", "9b015314-71ad-42b4-bcc8-66b19bd06a5b.jpeg", "Private outdoor shower — perfect for rinsing off after the beach."),
+      local("sea-pines-bungalow", "019f05d0-0b95-49fd-baa5-ed9b516232a1.jpeg", "Living and dining area with bright yellow walls and coastal decor."),
+      local("sea-pines-bungalow", "037952ea-49c5-4c5d-a9fb-1e2dd95a2359.jpeg", "Kitchen island with counter seating open to the living room."),
+      local("sea-pines-bungalow", "7e6999f6-945f-4e14-9ea1-475c9fed9999.jpeg", "Screened porch with a glass dining table and sliding doors to the living room."),
+      local("sea-pines-bungalow", "c43df4e7-7b1a-468d-bd64-45d3f9438799.jpeg", "Galley kitchen open to the living space with a full-size refrigerator."),
+      local("sea-pines-bungalow", "e1f7fe93-25b3-497c-9412-3b5452e47682.jpeg", "Bright kitchen with oak cabinetry and windows to the woods."),
+      local("sea-pines-bungalow", "6970c17c-6345-43e3-9301-38c31282139d.jpeg", "Screened porch with floral wicker chairs and a woodland view."),
+      local("sea-pines-bungalow", "9333bb3c-f634-4fe9-b36a-3f132d2a6833.jpeg", "Second bedroom looking through to the living area."),
+      local("sea-pines-bungalow", "52de1643-0e9f-41d1-be65-2c90b034f02a.jpeg", "Bathroom vanity with a hand-painted decorative mirror."),
+      local("sea-pines-bungalow", "cc995853-52e7-4e16-9448-3a8c9b414314.jpeg", "In-unit stacked washer and dryer."),
+      local("sea-pines-bungalow", "cf603b96-8111-4f47-9114-371fa417fddc.jpeg", "Floor plan: two bedrooms, two bathrooms, kitchen, living room, and two screened porches."),
+      local("sea-pines-bungalow", "bcac6a8e-fb86-438a-812e-87c8ec1f06ee.jpeg", "Exterior storage and utility area beside the bungalow."),
     ],
     bedGroups: [
       { room: "Bedroom 1", detail: "1 Queen bed", iconKey: "king_bed" },
@@ -427,7 +473,9 @@ const propertiesSeed: Property[] = [
   {
     slug: "unit-292-seaside-villas",
     name: "Steps From the Beach! Close to Restaurants & Shops",
-    subtitle: "Unit 292 — personally hosted king suite steps from the sand",
+    displayTitle: "Unit 292 in Hilton Head",
+    subtitle:
+      "Personally cared-for king suite, steps from the beach in Seaside Villas.",
     community: "Seaside Villas",
     location: "Seaside Villas, Hilton Head Island, SC",
     description: [
@@ -494,7 +542,7 @@ const propertiesSeed: Property[] = [
       {
         reviewerName: "Chris",
         rating: 5,
-        body: "\"Kacey was fantastic — responded instantly and even arranged bikes for us. The location is as close to the sand as it gets.\"",
+        body: "\"The Beach View team was fantastic — responded instantly and even arranged bikes for us. The location is as close to the sand as it gets.\"",
         dateLabel: "August 2024",
       },
       {
@@ -507,7 +555,7 @@ const propertiesSeed: Property[] = [
     ratingBreakdown: { cleanliness: 5.0, accuracy: 5.0, communication: 5.0, location: 5.0 },
     highlights: [
       { iconKey: "military_tech", title: "Top 5% of homes", subtitle: "Highly rated Guest Favorite." },
-      { iconKey: "verified_user", title: "Personally hosted", subtitle: "Owned, managed & cleaned by Kacey." },
+      { iconKey: "verified_user", title: "Personally managed", subtitle: "Owned, managed & cleaned by Beach View Properties." },
       { iconKey: "beach_access", title: "Steps from beach", subtitle: "Balcony feet from the sand." },
     ],
     locationBlurb:

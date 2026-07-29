@@ -36,7 +36,7 @@ export function PropertyCard({ property }: { property: Property }) {
       <div className="p-6">
         <Link href={href}>
           <h3 className="font-headline-sm text-headline-sm text-primary mb-1 line-clamp-1 hover:text-secondary transition-colors">
-            {property.subtitle}
+            {property.displayTitle}
           </h3>
         </Link>
         <p className="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mb-4">

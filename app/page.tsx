@@ -25,7 +25,7 @@ const whyDirect = [
   {
     icon: "chat",
     title: "Direct Communication",
-    body: "Speak directly with Kacey, your local Superhost. She knows every property inside-out and answers within the hour.",
+    body: "Speak directly with the local Beach View Properties team. We know every property inside-out and answer within the hour.",
   },
   {
     icon: "local_activity",
@@ -66,62 +66,20 @@ export default function HomePage() {
               with the owner — no service fees, fast response.
             </p>
 
-            {/* Decorative search card (v1 has no booking engine — routes to listings). */}
-            <div className="max-w-4xl mx-auto glass-panel p-6 rounded-2xl shadow-xl flex flex-col md:flex-row gap-4 items-end">
-              <div className="flex-1 text-left w-full">
-                <label className="block font-label-md text-label-md text-primary mb-2">
-                  Community
-                </label>
-                <div className="relative">
-                  <Icon
-                    name="location_on"
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-outline"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Seaside Villas, Sea Pines…"
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-outline-variant focus:border-secondary focus:ring-0 text-body-md bg-white"
-                  />
-                </div>
-              </div>
-              <div className="flex-1 text-left w-full">
-                <label className="block font-label-md text-label-md text-primary mb-2">
-                  Check-in / Out
-                </label>
-                <div className="relative">
-                  <Icon
-                    name="calendar_today"
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-outline"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Select dates"
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-outline-variant focus:border-secondary focus:ring-0 text-body-md bg-white"
-                  />
-                </div>
-              </div>
-              <div className="w-full md:w-32 text-left">
-                <label className="block font-label-md text-label-md text-primary mb-2">
-                  Guests
-                </label>
-                <div className="relative">
-                  <Icon
-                    name="group"
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-outline"
-                  />
-                  <input
-                    type="number"
-                    defaultValue={2}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-outline-variant focus:border-secondary focus:ring-0 text-body-md bg-white"
-                  />
-                </div>
-              </div>
+            {/* Landing page — single CTA into the property showcase (no search/booking engine). */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="#residences"
-                className="bg-primary text-on-primary w-full md:w-auto px-8 py-3.5 rounded-xl font-label-md text-label-md hover:bg-secondary transition-all flex items-center justify-center gap-2"
+                className="bg-primary text-on-primary px-8 py-3.5 rounded-xl font-label-md text-label-md hover:bg-secondary transition-all inline-flex items-center justify-center gap-2 shadow-lg"
               >
-                <Icon name="search" />
-                Explore Stays
+                <Icon name="apartment" />
+                Explore Our Properties
+              </a>
+              <a
+                href="#why-direct"
+                className="bg-surface/90 text-primary px-8 py-3.5 rounded-xl font-label-md text-label-md hover:bg-surface transition-all inline-flex items-center justify-center gap-2 shadow-lg"
+              >
+                Why Book Direct
               </a>
             </div>
           </div>
@@ -243,9 +201,9 @@ export default function HomePage() {
                   </div>
                   <p className="text-on-surface italic text-body-lg mb-8 leading-relaxed">
                     &ldquo;The condo was exactly like the photos — maybe better.
-                    Direct beach access, spotless, and Kacey answered every
-                    question within minutes. The easiest booking we&rsquo;ve ever
-                    made.&rdquo;
+                    Direct beach access, spotless, and the Beach View team
+                    answered every question within minutes. The easiest booking
+                    we&rsquo;ve ever made.&rdquo;
                   </p>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary font-label-md">

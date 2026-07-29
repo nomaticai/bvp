@@ -15,7 +15,7 @@ import type { AvailabilityBlock } from "@/components/AvailabilityCalendar";
 
 import { getProperty, getAllSlugs, getRelatedProperties } from "@/lib/data";
 import { IMG } from "@/lib/images";
-import { HOST } from "@/lib/config";
+import { HOST, SITE } from "@/lib/config";
 
 // Static generation with hourly ISR — availability stays fresh once the iCal
 // sync writes to `availability_blocks`, without full rebuilds (Section 4).
@@ -34,10 +34,10 @@ export function generateMetadata({
   const property = getProperty(params.slug);
   if (!property) return {};
   return {
-    title: property.name,
+    title: property.displayTitle,
     description: property.description[0],
     openGraph: {
-      title: `${property.name} · Beach View Properties`,
+      title: `${property.displayTitle} · Beach View Properties`,
       description: property.description[0],
       images: [{ url: property.heroImage.url }],
       type: "website",
@@ -93,44 +93,56 @@ export default function PropertyPage({
 
         {/* Title block */}
         <section className="mb-stack-lg">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4">
-            <div>
-              <h1 className="font-headline-md text-headline-md md:text-display-lg font-bold text-on-surface mb-2">
-                {property.name}
-              </h1>
-              <p className="text-on-surface-variant font-body-lg">
-                {property.location}
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-4">
-              {property.rating != null && (
-                <div className="flex items-center gap-1 bg-surface-container-high px-3 py-1.5 rounded-full border border-outline-variant/30">
-                  <Icon name="star" className="text-primary" filled />
-                  <span className="font-label-md text-label-md">
-                    {property.rating.toFixed(2)}
-                  </span>
-                  <span className="text-on-surface-variant text-caption">
-                    ({property.reviewCount} reviews)
-                  </span>
+          <h1 className="font-headline-md text-headline-md md:text-display-lg font-bold text-on-surface mb-2">
+            {property.displayTitle}
+          </h1>
+          {/* Small description under the title */}
+          <p className="text-on-surface-variant font-body-lg max-w-3xl mb-4">
+            {property.subtitle}
+          </p>
+          {/* Rating + stars row (Airbnb-style), with badges */}
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+            {property.rating != null && (
+              <div className="flex items-center gap-1.5">
+                <div className="flex">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Icon
+                      key={i}
+                      name="star"
+                      filled={i < Math.round(property.rating!)}
+                      className={
+                        i < Math.round(property.rating!)
+                          ? "text-primary text-[18px]"
+                          : "text-outline-variant text-[18px]"
+                      }
+                    />
+                  ))}
                 </div>
-              )}
-              {property.isGuestFavorite && (
-                <div className="bg-primary-fixed text-on-primary-fixed px-3 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-2">
-                  <Icon name="workspace_premium" className="text-[18px]" />
-                  {property.favoriteQualifier
-                    ? `Guest Favorite · ${property.favoriteQualifier}`
-                    : "Guest Favorite"}
-                </div>
-              )}
-              {property.strPermit && (
-                <div className="text-on-surface-variant text-caption flex items-center gap-1">
-                  <Icon name="verified_user" className="text-[16px]" />
-                  {property.strPermit}
-                </div>
-              )}
-            </div>
+                <span className="font-label-md text-label-md">
+                  {property.rating.toFixed(2)}
+                </span>
+                <span className="text-on-surface-variant text-caption">
+                  · {property.reviewCount} reviews
+                </span>
+              </div>
+            )}
+            {property.isGuestFavorite && (
+              <div className="bg-primary-fixed text-on-primary-fixed px-3 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-2">
+                <Icon name="workspace_premium" className="text-[18px]" />
+                {property.favoriteQualifier
+                  ? `Guest Favorite · ${property.favoriteQualifier}`
+                  : "Guest Favorite"}
+              </div>
+            )}
+            {property.strPermit && (
+              <div className="text-on-surface-variant text-caption flex items-center gap-1">
+                <Icon name="verified_user" className="text-[16px]" />
+                {property.strPermit}
+              </div>
+            )}
           </div>
-          <div className="flex flex-wrap gap-4 md:gap-6 mt-6 border-y border-outline-variant/20 py-4 text-on-surface-variant font-label-md text-label-md">
+          {/* Details row: guests · bedrooms · beds · baths */}
+          <div className="flex flex-wrap gap-4 md:gap-6 mt-4 border-y border-outline-variant/20 py-4 text-on-surface-variant font-label-md text-label-md">
             <span className="flex items-center gap-1">
               <Icon name="person" className="text-[20px]" />
               {property.guests} Guests
@@ -165,24 +177,20 @@ export default function PropertyPage({
               </div>
             )}
 
-            {/* Host intro */}
+            {/* Operator intro — brand-forward (no individual host name) */}
             <div className="flex items-center justify-between p-4 border border-outline-variant/20 rounded-2xl">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full overflow-hidden bg-surface-container relative shrink-0 flex items-center justify-center">
-                  <span className="font-headline-sm text-headline-sm text-primary">
-                    {HOST.name.charAt(0)}
-                  </span>
+                <div className="w-14 h-14 rounded-full bg-primary relative shrink-0 flex items-center justify-center">
+                  <Icon name="cottage" className="text-on-primary text-2xl" />
                   <div className="absolute bottom-0 right-0 bg-primary text-white p-0.5 rounded-full ring-2 ring-white">
                     <Icon name="verified" className="text-[14px]" filled />
                   </div>
                 </div>
                 <div>
-                  <p className="font-headline-sm text-[18px]">
-                    Hosted by {HOST.name}
-                  </p>
+                  <p className="font-headline-sm text-[18px]">By {SITE.name}</p>
                   <p className="text-on-surface-variant text-caption">
-                    Superhost · {HOST.monthsHosting} months hosting ·{" "}
-                    {HOST.responseRate} response rate
+                    Superhost · {HOST.responseRate} response rate · Responds{" "}
+                    {HOST.responseTime}
                   </p>
                 </div>
               </div>
@@ -318,7 +326,7 @@ export default function PropertyPage({
                 <div className="flex justify-between items-start">
                   <div>
                     <p className="font-label-md text-label-md text-on-surface line-clamp-1">
-                      {r.subtitle}
+                      {r.displayTitle}
                     </p>
                     <p className="text-on-surface-variant text-caption">
                       {r.bedrooms} Bedroom · {r.community}
@@ -341,7 +349,7 @@ export default function PropertyPage({
         </section>
       </main>
       <Footer />
-      <FloatingConcierge propertyName={property.name} />
+      <FloatingConcierge propertyName={property.displayTitle} />
     </>
   );
 }

@@ -37,13 +37,13 @@ export function BookingWidget({
           <AvailabilityCalendar blocks={blocks} />
         </div>
 
-        <ContactCTA propertyName={property.name} />
+        <ContactCTA propertyName={property.displayTitle} />
       </div>
 
       <div className="mt-6 p-6 border border-outline-variant/30 rounded-2xl flex items-center gap-4">
         <Icon name="verified_user" className="text-3xl text-primary" />
         <div>
-          <p className="font-label-md text-label-md">Direct with Owner</p>
+          <p className="font-label-md text-label-md">Direct with Beach View Properties</p>
           <p className="text-caption text-on-surface-variant">
             You're booking directly with the owner for the best possible rate.
           </p>

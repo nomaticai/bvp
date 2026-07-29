@@ -44,9 +44,12 @@ export interface RatingBreakdown {
 
 export interface Property {
   slug: string;
-  /** Airbnb listing title. */
+  /** Airbnb listing title (kept for SEO/OpenGraph and internal reference). */
   name: string;
-  /** Short marketing subtitle. */
+  /** Clean, professional headline used on cards and the detail page H1,
+   *  e.g. "Unit 292 in Hilton Head". */
+  displayTitle: string;
+  /** One-line descriptive tagline shown under the title. */
   subtitle: string;
   community: Community;
   location: string;
