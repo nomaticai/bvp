@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Icon } from "./Icon";
 import { SITE } from "@/lib/config";
 
@@ -30,10 +31,15 @@ export function Header({
   return (
     <header className="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-md border-b border-outline-variant/30 shadow-card">
       <nav className="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="font-headline-sm text-headline-sm font-bold text-primary">
-            {SITE.name}
-          </span>
+        <Link href="/" className="flex items-center" aria-label={SITE.name}>
+          <Image
+            src="/logo-light-bg.png"
+            alt={SITE.name}
+            width={3051}
+            height={2259}
+            priority
+            className="h-14 w-auto"
+          />
         </Link>
         <div className="hidden md:flex gap-8">
           {links.map((l) => (
