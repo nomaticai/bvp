@@ -34,32 +34,46 @@ export function PropertyCard({ property }: { property: Property }) {
         )}
       </Link>
       <div className="p-6">
-        <Link href={href}>
-          <h3 className="font-headline-sm text-headline-sm text-primary mb-1 line-clamp-1 hover:text-secondary transition-colors">
-            {property.displayTitle}
-          </h3>
-        </Link>
-        <p className="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mb-4">
+        {/* Title + rating (Airbnb-style) */}
+        <div className="flex items-start justify-between gap-3 mb-1">
+          <Link href={href} className="min-w-0">
+            <h3 className="font-headline-sm text-[19px] leading-tight text-primary hover:text-secondary transition-colors">
+              {property.displayTitle}
+            </h3>
+          </Link>
+          {property.rating != null && (
+            <span className="flex items-center gap-1 shrink-0 font-label-md text-label-md text-on-surface">
+              <Icon name="star" className="text-[16px] text-primary" filled />
+              {property.rating.toFixed(2)}
+              {property.reviewCount != null && (
+                <span className="text-on-surface-variant font-normal">
+                  ({property.reviewCount})
+                </span>
+              )}
+            </span>
+          )}
+        </div>
+
+        {/* Location */}
+        <p className="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mb-2">
           <Icon name="location_on" className="text-sm" /> {property.community}, HHI
         </p>
-        <div className="flex justify-between items-center pt-4 border-t border-outline-variant/30">
-          <div className="flex gap-4 text-outline text-sm">
-            <span className="flex items-center gap-1">
-              <Icon name="bed" className="text-base" /> {property.bedrooms}
-            </span>
-            <span className="flex items-center gap-1">
-              <Icon name="bathtub" className="text-base" /> {property.baths}
-            </span>
-            {property.rating != null && (
-              <span className="flex items-center gap-1">
-                <Icon name="star" className="text-base text-primary" filled />{" "}
-                {property.rating.toFixed(2)}
-              </span>
-            )}
-          </div>
+
+        {/* Small description */}
+        <p className="text-body-md text-on-surface-variant line-clamp-2 mb-4">
+          {property.subtitle}
+        </p>
+
+        {/* Details: bedrooms · beds · baths */}
+        <div className="flex justify-between items-center gap-3 pt-4 border-t border-outline-variant/30">
+          <p className="text-sm text-on-surface-variant">
+            {property.bedrooms} Bedroom{property.bedrooms > 1 ? "s" : ""} ·{" "}
+            {property.beds} Bed{property.beds > 1 ? "s" : ""} · {property.baths}{" "}
+            Bath{property.baths > 1 ? "s" : ""}
+          </p>
           <Link
             href={href}
-            className="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-secondary transition-all"
+            className="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-secondary transition-all shrink-0"
           >
             View
           </Link>

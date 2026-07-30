@@ -189,7 +189,7 @@ export default function PropertyPage({
                 <div>
                   <p className="font-headline-sm text-[18px]">By {SITE.name}</p>
                   <p className="text-on-surface-variant text-caption">
-                    Superhost · {HOST.responseRate} response rate · Responds{" "}
+                    {HOST.responseRate} response rate · Responds{" "}
                     {HOST.responseTime}
                   </p>
                 </div>
