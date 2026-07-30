@@ -35,7 +35,6 @@ const whyDirect = [
 ];
 
 export default function HomePage() {
-  const seaside = properties.filter((p) => p.community === "Seaside Villas");
   const seaPines = properties.filter((p) => p.community === "Sea Pines");
 
   return (
@@ -138,7 +137,6 @@ export default function HomePage() {
                 blurb="Ocean-view condos in a gated, beachfront community — steps from the sand, pools, and the shops and dining of Coligny Plaza."
                 imageUrl={IMG.seasideAerial.url}
                 imageAlt={IMG.seasideAerial.altText}
-                count={seaside.length}
                 exploreHref="#residences"
               />
               <CommunityCard
@@ -146,7 +144,6 @@ export default function HomePage() {
                 blurb="A charming 2-bedroom bungalow tucked into the maritime forest of Sea Pines, with lagoon-view porches near Harbour Town."
                 imageUrl={IMG.seaPinesEstate.url}
                 imageAlt={IMG.seaPinesEstate.altText}
-                count={seaPines.length}
                 exploreHref={`/properties/${seaPines[0]?.slug ?? ""}`}
               />
             </div>
@@ -243,14 +240,12 @@ function CommunityCard({
   blurb,
   imageUrl,
   imageAlt,
-  count,
   exploreHref,
 }: {
   title: string;
   blurb: string;
   imageUrl: string;
   imageAlt: string;
-  count: number;
   exploreHref: string;
 }) {
   return (
@@ -263,13 +258,10 @@ function CommunityCard({
         className="object-cover transition-transform duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/20 to-transparent flex flex-col justify-end p-10">
-        <span className="text-on-primary-container font-label-md text-label-md mb-2">
-          {count} {count === 1 ? "PROPERTY" : "PROPERTIES"}
-        </span>
-        <h3 className="font-headline-md text-headline-md text-on-primary mb-2">
+        <h3 className="font-headline-md text-headline-md text-white mb-2">
           {title}
         </h3>
-        <p className="text-on-primary-container mb-6 text-body-md max-w-md">
+        <p className="text-white mb-6 text-body-md max-w-md drop-shadow">
           {blurb}
         </p>
         <Link

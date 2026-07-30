@@ -22,18 +22,13 @@ export function Footer() {
     <footer className="bg-primary w-full">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop py-stack-lg max-w-container-max mx-auto">
         <div>
-          <div className="flex items-center gap-3 mb-4">
-            <Image
-              src="/logo-dark-bg.png"
-              alt=""
-              width={4500}
-              height={4500}
-              className="h-12 w-12 object-contain"
-            />
-            <span className="font-headline-md text-headline-md text-on-primary">
-              {SITE.name}
-            </span>
-          </div>
+          <Image
+            src="/logo-dark-bg.png"
+            alt={SITE.name}
+            width={4500}
+            height={4500}
+            className="h-40 w-40 object-contain mb-4 -ml-2"
+          />
           <p className="text-on-primary/70 font-body-md text-body-md max-w-xs mb-8">
             Providing elite vacation experiences on {SITE.location} since{" "}
             {SITE.hostSinceLabel}. Book direct with the owner — no service fees.
