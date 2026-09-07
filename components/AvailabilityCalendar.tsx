@@ -45,8 +45,11 @@ function toKeySet(blocks: AvailabilityBlock[]): Set<number> {
 
 export function AvailabilityCalendar({
   blocks = [],
+  synced = false,
 }: {
   blocks?: AvailabilityBlock[];
+  /** True when this property's Airbnb feed is connected and synced. */
+  synced?: boolean;
 }) {
   const today = useMemo(() => startOfDay(new Date()), []);
   const [cursor, setCursor] = useState(() => {
@@ -55,7 +58,6 @@ export function AvailabilityCalendar({
   });
 
   const blockedDays = useMemo(() => toKeySet(blocks), [blocks]);
-  const hasRealData = blocks.length > 0;
 
   const year = cursor.getFullYear();
   const month = cursor.getMonth();
@@ -136,9 +138,9 @@ export function AvailabilityCalendar({
 
       <p className="text-caption text-on-surface-variant mt-3 flex items-center gap-1.5">
         <Icon name="info" className="text-[16px] text-secondary" />
-        {hasRealData
-          ? "Greyed dates are unavailable. Message us to confirm your stay."
-          : "Live availability syncing soon — confirm your dates via WhatsApp or a call."}
+        {synced
+          ? "Greyed dates are already booked. Message us to confirm your stay."
+          : "Confirm your dates with us via WhatsApp or a call."}
       </p>
     </div>
   );

@@ -16,6 +16,8 @@ import type { AvailabilityBlock } from "@/components/AvailabilityCalendar";
 import { getProperty, getAllSlugs, getRelatedProperties } from "@/lib/data";
 import { IMG } from "@/lib/images";
 import { HOST, SITE } from "@/lib/config";
+import { icalUrlForSlug } from "@/lib/icalUrls";
+import { fetchAvailabilityForUrl } from "@/lib/icalSync";
 
 // Static generation with hourly ISR — availability stays fresh once the iCal
 // sync writes to `availability_blocks`, without full rebuilds (Section 4).
@@ -46,17 +48,28 @@ export function generateMetadata({
 }
 
 /**
- * Availability blocks for this property.
+ * Availability for this property, synced live from its Airbnb iCal feed.
  *
- * Session 1: static seed = empty (all-available placeholder). Later, this is
- * where the page reads `availability_blocks` for the property (via Supabase)
- * and passes them to <BookingWidget> — no component changes required.
+ * `synced` = a feed URL is configured AND the fetch succeeded. On any failure
+ * we return synced:false (no last-known-good store yet) so the calendar shows
+ * "confirm via WhatsApp" rather than implying everything is available.
+ * Runs at build / ISR-revalidate (hourly); the fetch is cached accordingly.
  */
-function getAvailabilityBlocks(_slug: string): AvailabilityBlock[] {
-  return [];
+async function getAvailability(
+  slug: string,
+): Promise<{ blocks: AvailabilityBlock[]; synced: boolean }> {
+  const url = icalUrlForSlug(slug);
+  if (!url) return { blocks: [], synced: false };
+  try {
+    const blocks = await fetchAvailabilityForUrl(url);
+    return { blocks, synced: true };
+  } catch (err) {
+    console.error(`[availability] iCal sync failed for ${slug}:`, err);
+    return { blocks: [], synced: false };
+  }
 }
 
-export default function PropertyPage({
+export default async function PropertyPage({
   params,
 }: {
   params: { slug: string };
@@ -65,7 +78,7 @@ export default function PropertyPage({
   if (!property) notFound();
 
   const related = getRelatedProperties(property.slug);
-  const blocks = getAvailabilityBlocks(property.slug);
+  const { blocks, synced } = await getAvailability(property.slug);
 
   return (
     <>
@@ -298,7 +311,7 @@ export default function PropertyPage({
 
           {/* Right column — sticky booking widget */}
           <div className="lg:col-span-4">
-            <BookingWidget property={property} blocks={blocks} />
+            <BookingWidget property={property} blocks={blocks} synced={synced} />
           </div>
         </div>
 

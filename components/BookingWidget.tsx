@@ -10,9 +10,11 @@ import type { Property } from "@/lib/types";
 export function BookingWidget({
   property,
   blocks = [],
+  synced = false,
 }: {
   property: Property;
   blocks?: AvailabilityBlock[];
+  synced?: boolean;
 }) {
   return (
     <aside className="sticky top-28">
@@ -34,7 +36,7 @@ export function BookingWidget({
         </div>
 
         <div className="mb-6">
-          <AvailabilityCalendar blocks={blocks} />
+          <AvailabilityCalendar blocks={blocks} synced={synced} />
         </div>
 
         <ContactCTA propertyName={property.displayTitle} />

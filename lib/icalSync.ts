@@ -1,47 +1,95 @@
 /**
- * iCal availability sync logic (Section 7).
+ * iCal availability sync (Section 7).
  *
- * SCAFFOLD ONLY for Session 1 — not wired to a live schedule yet. This file
- * documents the intended shape so a later session can drop in a real iCal
- * parser (node-ical / ical.js) and a Supabase service-role client.
+ * Parses an Airbnb `.ics` export into busy date ranges and fetches feeds
+ * server-side. Airbnb VEVENTs use all-day DATE values where DTEND is the
+ * checkout day (EXCLUSIVE), so the last blocked night is DTEND - 1 day.
  *
- * Contract per the brief:
- *   - Fetch each property's private Airbnb `.ics` URL (properties.airbnb_ical_url)
- *   - Parse VEVENT blocks → busy date ranges
- *   - DELETE existing availability_blocks for that property, INSERT fresh ranges
- *   - On failure (feed unreachable / malformed): keep last-known-good data.
- *     NEVER clear the calendar to an "all available" state — that's misleading.
+ * No external dependency: Airbnb's iCal is simple and well-formed, so a small
+ * purpose-built parser is more robust here than pulling in node-ical.
  */
 
 export interface ParsedBlock {
-  startDate: string; // YYYY-MM-DD, inclusive
-  endDate: string; // YYYY-MM-DD, inclusive
+  /** YYYY-MM-DD, inclusive (first unavailable night). */
+  startDate: string;
+  /** YYYY-MM-DD, inclusive (last unavailable night). */
+  endDate: string;
 }
 
-export interface SyncResult {
-  propertyId: string;
-  ok: boolean;
-  blocks: ParsedBlock[];
-  error?: string;
+/** "20260907" (or "20260907T000000Z") -> "2026-09-07". Returns null if unparseable. */
+function toIso(rawValue: string): string | null {
+  const m = rawValue.match(/(\d{4})(\d{2})(\d{2})/);
+  if (!m) return null;
+  return `${m[1]}-${m[2]}-${m[3]}`;
+}
+
+/** Shift a YYYY-MM-DD date string by `days` (can be negative), returning YYYY-MM-DD. */
+function shiftIso(iso: string, days: number): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + days);
+  return dt.toISOString().slice(0, 10);
 }
 
 /**
- * Parse an Airbnb iCal (.ics) payload into busy date ranges.
- * TODO: implement with node-ical/ical.js. Airbnb VEVENTs use DTSTART/DTEND
- * where DTEND is exclusive — normalize to inclusive end dates here.
+ * Parse an Airbnb iCal payload into inclusive busy date ranges.
+ * Every VEVENT (reservation or owner block) counts as unavailable.
  */
-export function parseIcalToBlocks(_ics: string): ParsedBlock[] {
-  throw new Error("parseIcalToBlocks not implemented — Session 1 scaffold only.");
+export function parseIcalToBlocks(ics: string): ParsedBlock[] {
+  // Unfold RFC 5545 folded lines (continuation lines start with space/tab).
+  const unfolded = ics.replace(/\r?\n[ \t]/g, "");
+  const lines = unfolded.split(/\r\n|\n|\r/);
+
+  const blocks: ParsedBlock[] = [];
+  let inEvent = false;
+  let startRaw: string | null = null;
+  let endRaw: string | null = null;
+
+  for (const line of lines) {
+    if (line.startsWith("BEGIN:VEVENT")) {
+      inEvent = true;
+      startRaw = null;
+      endRaw = null;
+      continue;
+    }
+    if (line.startsWith("END:VEVENT")) {
+      if (startRaw && endRaw) {
+        const start = toIso(startRaw);
+        const endExclusive = toIso(endRaw);
+        if (start && endExclusive) {
+          // DTEND is the checkout day (exclusive) -> last blocked night is -1.
+          const end = shiftIso(endExclusive, -1);
+          if (end >= start) blocks.push({ startDate: start, endDate: end });
+        }
+      }
+      inEvent = false;
+      continue;
+    }
+    if (!inEvent) continue;
+
+    // Property lines can carry params, e.g. "DTSTART;VALUE=DATE:20260907".
+    if (/^DTSTART[:;]/.test(line)) startRaw = line.slice(line.indexOf(":") + 1);
+    else if (/^DTEND[:;]/.test(line)) endRaw = line.slice(line.indexOf(":") + 1);
+  }
+
+  return blocks;
 }
 
 /**
- * Sync a single property. Fetches its feed, parses, and returns the result.
- * The caller (Edge Function / cron route) is responsible for the
- * delete-then-insert transaction and for preserving last-known-good on failure.
+ * Fetch and parse one property's iCal feed. Throws on network/HTTP failure so
+ * the caller can decide how to degrade (we do NOT invent availability).
  */
-export async function syncProperty(
-  _propertyId: string,
-  _icalUrl: string,
-): Promise<SyncResult> {
-  throw new Error("syncProperty not implemented — Session 1 scaffold only.");
+export async function fetchAvailabilityForUrl(
+  url: string,
+): Promise<ParsedBlock[]> {
+  const res = await fetch(url, {
+    // Align with the property page's ISR window; cached at build/revalidate.
+    next: { revalidate: 3600 },
+    headers: { Accept: "text/calendar" },
+  });
+  if (!res.ok) {
+    throw new Error(`iCal fetch failed (${res.status} ${res.statusText})`);
+  }
+  const text = await res.text();
+  return parseIcalToBlocks(text);
 }
