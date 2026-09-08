@@ -1,18 +1,13 @@
 /**
  * Site-wide constants.
  *
- * CONTACT_PHONE is an intentionally-fake placeholder (Section 8 of the brief).
- * It is a one-line swap when the client provides the real WhatsApp/Call number.
- * Keep it obviously fake so the site never dials a real wrong number if it
- * launches before the swap.
- *
- *   TODO(client): replace CONTACT_PHONE with the real number in E.164 format,
- *   e.g. "+18435551234". Update nothing else — every CTA reads from here.
+ * CONTACT_PHONE (E.164) drives every WhatsApp deep link and Call CTA on the
+ * site — change it here and it updates everywhere.
  */
-export const CONTACT_PHONE = "+10000000000";
+export const CONTACT_PHONE = "+15136801128";
 
 /** Human-friendly rendering of the phone number for display. */
-export const CONTACT_PHONE_DISPLAY = "+1 (000) 000-0000";
+export const CONTACT_PHONE_DISPLAY = "+1 (513) 680-1128";
 
 export const SITE = {
   name: "Beach View Properties",
